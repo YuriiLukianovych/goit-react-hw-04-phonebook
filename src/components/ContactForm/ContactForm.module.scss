@@ -1,0 +1,38 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  label {
+    align-self: flex-start;
+    color: #6c0e0e;
+    font-weight: 500;
+  }
+
+  &.btnWrapper {
+    margin-top: 8px;
+    .btn {
+      border-radius: 4px;
+      outline: none;
+      border: 1px solid transparent;
+      padding: 4px;
+      transition: background 300ms;
+      line-height: 1.25;
+      background-color: #7b2f3d;
+      color: #ffffff;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: #701c2b;
+      }
+    }
+  }
+}

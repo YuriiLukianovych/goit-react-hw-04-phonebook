@@ -1,0 +1,27 @@
+.bodyWrapper {
+  border-left: 1px solid rgb(70, 37, 37);
+  border-right: 1px solid rgb(70, 37, 37);
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+  max-width: 1020px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  background-color: #efebeb;
+}
+
+.phonebookWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .title {
+    padding-left: 10px;
+    color: #7b2f3d;
+  }
+}

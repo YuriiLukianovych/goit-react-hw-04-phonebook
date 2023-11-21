@@ -1,0 +1,41 @@
+.contactItem {
+  font-size: 18px;
+  font-weight: 500;
+  color: #6c0e0e;
+  text-transform: capitalize;
+
+  padding: 4px;
+  border-radius: 4px;
+
+  position: relative;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+
+    .deleteBtn {
+      display: block;
+    }
+  }
+
+  .deleteBtn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    display: none;
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      color: #6c0e0e;
+    }
+  }
+}
