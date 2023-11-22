@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ErrorFormMessage from 'components/ErrorFormMessage';
 import css from './ContactForm.module.scss';
 import { nanoid } from 'nanoid';
@@ -29,31 +29,31 @@ const initialValues = {
   number: '',
 };
 
-export default class ContactForm extends Component {
-  handleSubmit = (values, actions) => {
+function ContactForm({ addContact }) {
+  const handleSubmit = (values, actions) => {
     const { name, number } = values;
     const contactData = {
       id: nanoid(),
       name,
       number,
     };
-    this.props.addContact(contactData);
+    addContact(contactData);
     actions.resetForm();
   };
 
-  render() {
-    return (
-      <div className="boxWrapper">
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={this.handleSubmit}
-        >
+  return (
+    <div className="boxWrapper">
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ errors }) => (
           <Form autoComplete="false">
             <div className={css.formRow}>
               <label htmlFor="name">Name:</label>
               <Field
-                className={`input ${this.error && 'error'}`}
+                className={`input ${errors.name && 'error'}`}
                 type="text"
                 id="name"
                 name="name"
@@ -63,7 +63,7 @@ export default class ContactForm extends Component {
             <div className={css.formRow}>
               <label htmlFor="number">Number:</label>
               <Field
-                className={`input ${this.error && 'error'}`}
+                className={`input ${errors.number && 'error'}`}
                 type="tel"
                 id="number"
                 name="number"
@@ -76,8 +76,10 @@ export default class ContactForm extends Component {
               </button>
             </div>
           </Form>
-        </Formik>
-      </div>
-    );
-  }
+        )}
+      </Formik>
+    </div>
+  );
 }
+
+export default ContactForm;
